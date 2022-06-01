@@ -3,19 +3,19 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "adminUsername": {
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Username for the Virtual Machine"
             }
         },
         "adminPassword": {
-            "type": "SecureString",
+            "type": "securestring",
             "metadata": {
                 "description": "Password for the Virtual Machine"
             }
         },
         "fortiGateNamePrefix": {
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Naming prefix for all deployed resources. The FortiGate VMs will have the suffix '-FGT-A' and '-FGT-B'. For example if the prefix is 'ACME01' the FortiGates will be named 'ACME01-FGT-A' and 'ACME01-FGT-B'"
             }
@@ -26,7 +26,7 @@
                 "fortinet_fg-vm",
                 "fortinet_fg-vm_payg_20190624"
             ],
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Identifies whether to to use PAYG (on demand licensing) or BYOL license model (where license is purchased separately)"
             }
@@ -53,14 +53,14 @@
                 "7.0.5",
                 "latest"
             ],
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Select the FortiGate image version"
             }
         },
         "fortiGateAdditionalCustomData": {
             "defaultValue": "",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "The ARM template provides a basic configuration. Additional configuration can be added here."
             }
@@ -84,7 +84,7 @@
                 "Standard_D16s_v3",
                 "Standard_D32s_v3"
             ],
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Virtual Machine size selection - must be F4 or other instance that supports 4 NICs"
             }
@@ -95,7 +95,7 @@
                 "Availability Set",
                 "Availability Zones"
             ],
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Deploy FortiGate VMs in an Availability Set or Availability Zones. If Availability Zones deployment is selected but the location does not support Availability Zones an Availability Set will be deployed. If Availability Zones deployment is selected and Availability Zones are available in the location, FortiGate A will be placed in Zone 1, FortiGate B will be placed in Zone 2"
             }
@@ -106,7 +106,7 @@
                 true,
                 false
             ],
-            "type": "Bool",
+            "type": "bool",
             "metadata": {
                 "description": "Accelerated Networking enables direct connection between the VM and network card. Only available on 2 CPU F/Fs and 4 CPU D/Dsv2, D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms and Ms/Mmsv2"
             }
@@ -117,21 +117,21 @@
                 "new",
                 "existing"
             ],
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Public IP for the Load Balancer for inbound and outbound data of the FortiGate VMs"
             }
         },
         "publicIP1Name": {
             "defaultValue": "",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Name of Public IP address, if no name is provided the default name will be the Resource Group Name as the Prefix and '-FGT-PIP' as the suffix"
             }
         },
         "publicIP1ResourceGroup": {
             "defaultValue": "",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Public IP Resource Group, this value is required if an existing Public IP is selected"
             }
@@ -143,21 +143,21 @@
                 "existing",
                 "none"
             ],
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Public IP for management of the FortiGate A. This deployment uses a Standard SKU Azure Load Balancer and requires a Standard SKU public IP. Microsoft Azure offers a migration path from a basic to standard SKU public IP. The management IP's for both FortiGate can be set to none. If no alternative internet access is provided, the SDN Connector functionality for dynamic objects will not work."
             }
         },
         "publicIP2Name": {
             "defaultValue": "",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Name of Public IP address, if no name is provided the default name will be the Resource Group Name as the Prefix and '-FGT-A-MGMT-PIP' as the suffix"
             }
         },
         "publicIP2ResourceGroup": {
             "defaultValue": "",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Public IP Resource Group, this value is required if an existing Public IP is selected"
             }
@@ -169,21 +169,21 @@
                 "existing",
                 "none"
             ],
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Public IP for management of the FortiGate B. This deployment uses a Standard SKU Azure Load Balancer and requires a Standard SKU public IP. Microsoft Azure offers a migration path from a basic to standard SKU public IP. The management IP's for both FortiGate can be set to none. If no alternative internet access is provided, the SDN Connector functionality for both HA failover and dynamic objects will not work."
             }
         },
         "publicIP3Name": {
             "defaultValue": "",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Name of Public IP address, if no name is provided the default name will be the Resource Group Name as the Prefix and '-FGT-B-MGMT-PIP' as the suffix"
             }
         },
         "publicIP3ResourceGroup": {
             "defaultValue": "",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Public IP Resource Group, this value is required if an existing Public IP is selected"
             }
@@ -194,126 +194,126 @@
                 "new",
                 "existing"
             ],
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Identify whether to use a new or existing vnet"
             }
         },
         "vnetName": {
             "defaultValue": "",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Name of the Azure virtual network, required if utilizing an existing VNET. If no name is provided the default name will be the Resource Group Name as the Prefix and '-VNET' as the suffix"
             }
         },
         "vnetResourceGroup": {
             "defaultValue": "",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Resource Group containing the existing virtual network, leave blank if a new VNET is being utilized"
             }
         },
         "vnetAddressPrefix": {
             "defaultValue": "172.16.136.0/22",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Virtual Network Address prefix"
             }
         },
         "subnet1Name": {
             "defaultValue": "ExternalSubnet",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Subnet 1 Name"
             }
         },
         "subnet1Prefix": {
             "defaultValue": "172.16.136.0/26",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Subnet 1 Prefix"
             }
         },
         "subnet1StartAddress": {
             "defaultValue": "172.16.136.4",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Subnet 1 start address, 2 consecutive private IPs are required"
             }
         },
         "subnet2Name": {
             "defaultValue": "InternalSubnet",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Subnet 2 Name"
             }
         },
         "subnet2Prefix": {
             "defaultValue": "172.16.136.64/26",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Subnet 2 Prefix"
             }
         },
         "subnet2StartAddress": {
             "defaultValue": "172.16.136.68",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Subnet 2 start address, 3 consecutive private IPs are required"
             }
         },
         "subnet3Name": {
             "defaultValue": "HASyncSubnet",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Subnet 3 Name"
             }
         },
         "subnet3Prefix": {
             "defaultValue": "172.16.136.128/26",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Subnet 3 Prefix"
             }
         },
         "subnet3StartAddress": {
             "defaultValue": "172.16.136.132",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Subnet 3 start address, 2 consecutive private IPs are required"
             }
         },
         "subnet4Name": {
             "defaultValue": "ManagementSubnet",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Subnet 4 Name"
             }
         },
         "subnet4Prefix": {
             "defaultValue": "172.16.136.192/26",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Subnet 4 Prefix"
             }
         },
         "subnet4StartAddress": {
             "defaultValue": "172.16.136.196",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Subnet 4 start address, 2 consecutive private IPs are required"
             }
         },
         "subnet5Name": {
             "defaultValue": "ProtectedASubnet",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Subnet 5 Name"
             }
         },
         "subnet5Prefix": {
             "defaultValue": "172.16.137.0/24",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Subnet 5 Prefix"
             }
@@ -324,7 +324,7 @@
                 "yes",
                 "no"
             ],
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Enable Serial Console"
             }
@@ -335,56 +335,56 @@
                 "yes",
                 "no"
             ],
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Connect to FortiManager"
             }
         },
         "fortiManagerIP": {
             "defaultValue": "",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "FortiManager IP or DNS name to connect to on port TCP/541"
             }
         },
         "fortiManagerSerial": {
             "defaultValue": "",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "FortiManager serial number to add the deployed FortiGate into the FortiManager"
             }
         },
         "fortiGateLicenseBYOLA": {
             "defaultValue": "",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Primary FortiGate BYOL license content"
             }
         },
         "fortiGateLicenseBYOLB": {
             "defaultValue": "",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Secondary FortiGate BYOL license content"
             }
         },
         "fortiGateLicenseFlexVMA": {
             "defaultValue": "",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Primary FortiGate BYOL Flex-VM license token"
             }
         },
         "fortiGateLicenseFlexVMB": {
             "defaultValue": "",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Secondary FortiGate BYOL Flex-VM license token"
             }
         },
         "location": {
             "defaultValue": "[resourceGroup().location]",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Location for all resources."
             }
@@ -395,7 +395,7 @@
                 "template": "Active-Passive-ELB-ILB",
                 "provider": "6EB3B02F-50E5-4A3E-8CB8-2E12925831AP"
             },
-            "type": "Object"
+            "type": "object"
         }
     },
     "variables": {
@@ -1336,19 +1336,19 @@
     ],
     "outputs": {
         "fortiGatePublicIP": {
-            "type": "String",
+            "type": "string",
             "value": "[if(equals(parameters('publicIP1NewOrExisting'), 'new'), reference(variables('publicIP1Id')).ipAddress, '')]"
         },
         "fortiGateFQDN": {
-            "type": "String",
+            "type": "string",
             "value": "[if(equals(parameters('publicIP1NewOrExisting'), 'new'), reference(variables('publicIP1Id')).dnsSettings.fqdn, '')]"
         },
         "fortiGateAManagementPublicIP": {
-            "type": "String",
+            "type": "string",
             "value": "[if(equals(parameters('publicIP2NewOrExisting'), 'new'), reference(variables('publicIP2Id')).ipAddress, '')]"
         },
         "fortiGateBManagementPublicIP": {
-            "type": "String",
+            "type": "string",
             "value": "[if(equals(parameters('publicIP3NewOrExisting'), 'new'), reference(variables('publicIP3Id')).ipAddress, '')]"
         }
     }
